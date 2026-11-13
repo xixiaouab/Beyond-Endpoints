@@ -8,3 +8,23 @@ const dialog=document.querySelector('#figure-dialog');
 document.querySelectorAll('[data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.querySelector('#dialog-image');image.src=button.dataset.zoom;image.alt=button.querySelector('img').alt;dialog.showModal();}));
 document.querySelector('#close-figure').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',event=>{if(event.target===dialog){const rect=dialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)dialog.close();}});
+
+const visualizationTabs=[...document.querySelectorAll('.visualization-tab')];
+function showVisualization(tab){
+  visualizationTabs.forEach(item=>{
+    const selected=item===tab;
+    item.setAttribute('aria-selected',String(selected));
+    item.tabIndex=selected?0:-1;
+    document.getElementById(item.getAttribute('aria-controls')).hidden=!selected;
+  });
+}
+visualizationTabs.forEach((tab,index)=>{
+  tab.addEventListener('click',()=>showVisualization(tab));
+  tab.addEventListener('keydown',event=>{
+    if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+    event.preventDefault();
+    const next=event.key==='Home'?0:event.key==='End'?visualizationTabs.length-1:(index+(event.key==='ArrowRight'?1:-1)+visualizationTabs.length)%visualizationTabs.length;
+    visualizationTabs[next].focus();
+    showVisualization(visualizationTabs[next]);
+  });
+});

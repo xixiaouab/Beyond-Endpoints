@@ -26,6 +26,7 @@
     <nav aria-label="Main navigation">
       <a href="#overview">Overview</a>
       <a href="#results">Results</a>
+      <a href="#visualizations">Visualizations</a>
       <a href="#citation">Citation</a>
       <a class="nav-github" href="https://github.com/xixiaouab/Beyond-Endpoints" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
@@ -97,9 +98,44 @@
       </div>
     </section>
 
-    <section class="timing content-container" aria-labelledby="timing-title"><div class="timing-heading"><span class="section-number">04 / A better route, a better clock</span><h2 id="timing-title">Retiming helps.<br><em>Geometry still matters.</em></h2><p>Moving at a constant speed removes timing cost. It cannot straighten a curved route or remove the intrinsic gap.</p></div><figure class="paper-figure"><button class="figure-button" data-zoom="assets/route-timing.png" aria-label="Enlarge route and timing diagnostics"><img src="assets/route-timing.png" width="1800" height="549" alt="Four panels compare speed, cumulative action, retiming, and excess action for token-linear, aggregate-linear, and developed-chord paths." loading="eager"></button><figcaption>Formula evaluations on 24 scalar-model cases, normalized by their attainable optimum. These diagnostics distinguish route cost from timing cost.</figcaption></figure></section>
+    <section class="visualizations content-container" id="visualizations" aria-labelledby="visualizations-title">
+      <div class="visualizations-intro">
+        <div><span class="section-number">04 / Visual comparisons</span><h2 id="visualizations-title">Saliency &amp;<br><em>attention.</em></h2></div>
+        <p>Matched animal photographs at the midpoint of two B&eacute;zier prompt paths: cross-entropy and feature action.</p>
+      </div>
+      <div class="visualization-tabs" role="tablist" aria-label="Choose animal visualization">
+        <button class="visualization-tab" id="visualization-tab-saliency" role="tab" aria-selected="true" aria-controls="visualization-panel-saliency">Pet saliency</button>
+        <button class="visualization-tab" id="visualization-tab-animals" role="tab" aria-selected="false" aria-controls="visualization-panel-animals" tabindex="-1">Animal attention</button>
+        <button class="visualization-tab" id="visualization-tab-pets" role="tab" aria-selected="false" aria-controls="visualization-panel-pets" tabindex="-1">More pet attention</button>
+      </div>
+      <figure class="visualization-panel" id="visualization-panel-saliency" role="tabpanel" aria-labelledby="visualization-tab-saliency">
+        <div class="visualization-panel-heading"><h3>Oxford-IIIT Pet</h3><span>Path midpoint</span></div>
+        <div class="visualization-frame" tabindex="0" role="region" aria-label="Pet saliency comparison; scroll horizontally on small screens">
+          <button class="figure-button" data-zoom="assets/saliency-animals.webp" aria-label="Enlarge the pet saliency comparisons"><img src="assets/saliency-animals.webp" width="2800" height="939" alt="Saliency on Siamese, Birman, Bombay, Basset hound, German shorthaired and Pomeranian photographs. CE B&eacute;zier is the top row; feature-action B&eacute;zier is the bottom row." loading="lazy" decoding="async"></button>
+        </div>
+        <figcaption><span>Saliency on six pet photographs. CE B&eacute;zier (top); feature-action B&eacute;zier (bottom).</span><a href="assets/saliency-animals.webp" target="_blank" rel="noopener">Open full size <span aria-hidden="true">↗</span></a></figcaption>
+      </figure>
+      <figure class="visualization-panel" id="visualization-panel-animals" role="tabpanel" aria-labelledby="visualization-tab-animals" hidden>
+        <div class="visualization-panel-heading"><h3>Caltech-101 animals</h3><span>Path midpoint</span></div>
+        <div class="visualization-frame" tabindex="0" role="region" aria-label="Animal attention comparison; scroll horizontally on small screens">
+          <button class="figure-button" data-zoom="assets/attention-animals.webp" aria-label="Enlarge the animal attention comparisons"><img src="assets/attention-animals.webp" width="2800" height="891" alt="Attention on butterfly, elephant, flamingo, gerenuk, kangaroo and pigeon photographs. CE B&eacute;zier is the top row; feature-action B&eacute;zier is the bottom row." loading="lazy" decoding="async"></button>
+        </div>
+        <figcaption><span>Attention on six Caltech-101 animal photographs. CE B&eacute;zier (top); feature-action B&eacute;zier (bottom).</span><a href="assets/attention-animals.webp" target="_blank" rel="noopener">Open full size <span aria-hidden="true">↗</span></a></figcaption>
+      </figure>
+      <figure class="visualization-panel" id="visualization-panel-pets" role="tabpanel" aria-labelledby="visualization-tab-pets" hidden>
+        <div class="visualization-panel-heading"><h3>Pet poses &amp; backgrounds</h3><span>Path midpoint</span></div>
+        <div class="visualization-frame" tabindex="0" role="region" aria-label="Additional pet attention comparison; scroll horizontally on small screens">
+          <button class="figure-button" data-zoom="assets/attention-pets.webp" aria-label="Enlarge the additional pet attention comparisons"><img src="assets/attention-pets.webp" width="2800" height="939" alt="Attention on Birman, Persian, Staffordshire terrier, Chihuahua, Beagle and Cocker spaniel photographs. CE B&eacute;zier is the top row; feature-action B&eacute;zier is the bottom row." loading="lazy" decoding="async"></button>
+        </div>
+        <figcaption><span>Additional pet poses and backgrounds. CE B&eacute;zier (top); feature-action B&eacute;zier (bottom).</span><a href="assets/attention-pets.webp" target="_blank" rel="noopener">Open full size <span aria-hidden="true">↗</span></a></figcaption>
+      </figure>
+      <p class="visualization-pan-hint">Swipe across the figure to see all six photographs. Tap to enlarge.</p>
+      <p class="visualization-note">Each column shares the same crop and scale across methods. These snapshots illustrate spatial diagnostics; full-path action and prediction quality are evaluated separately.</p>
+    </section>
 
-    <section class="citation-section content-container" id="citation" aria-labelledby="citation-title"><div class="citation-heading"><div><span class="section-number">05 / Cite this work</span><h2 id="citation-title"><em>Citation.</em></h2></div><button class="copy-button" id="copy-citation"><span aria-hidden="true">⧉</span> Copy BibTeX</button></div><pre id="citation-text"><code>@misc{zheng2026beyondendpoints,
+    <section class="timing content-container" aria-labelledby="timing-title"><div class="timing-heading"><span class="section-number">05 / A better route, a better clock</span><h2 id="timing-title">Retiming helps.<br><em>Geometry still matters.</em></h2><p>Moving at a constant speed removes timing cost. It cannot straighten a curved route or remove the intrinsic gap.</p></div><figure class="paper-figure"><button class="figure-button" data-zoom="assets/route-timing.png" aria-label="Enlarge route and timing diagnostics"><img src="assets/route-timing.png" width="1800" height="549" alt="Four panels compare speed, cumulative action, retiming, and excess action for token-linear, aggregate-linear, and developed-chord paths." loading="eager"></button><figcaption>Formula evaluations on 24 scalar-model cases, normalized by their attainable optimum. These diagnostics distinguish route cost from timing cost.</figcaption></figure></section>
+
+    <section class="citation-section content-container" id="citation" aria-labelledby="citation-title"><div class="citation-heading"><div><span class="section-number">06 / Cite this work</span><h2 id="citation-title"><em>Citation.</em></h2></div><button class="copy-button" id="copy-citation"><span aria-hidden="true">⧉</span> Copy BibTeX</button></div><pre id="citation-text"><code>@misc{zheng2026beyondendpoints,
   title  = {Beyond Endpoints: B\'ezier Paths for
             Vision Foundation Model Adaptation},
   author = {Chenzhi Zheng and Xi Xiao and Chih-Ting Liao
