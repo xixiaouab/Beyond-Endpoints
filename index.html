@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8fa">
+  <title>Beyond Endpoints · Vision Foundation Model Adaptation</title>
+  <meta name="description" content="Bézier Paths for Vision Foundation Model Adaptation. The geometry and cost of moving frozen visual features with shared prompts.">
+  <meta property="og:title" content="Beyond Endpoints">
+  <meta property="og:description" content="Reachable endpoints do not guarantee a reachable shortest path. Bézier paths for vision foundation model adaptation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xixiaouab.github.io/Beyond-Endpoints/">
+  <meta property="og:image" content="https://xixiaouab.github.io/Beyond-Endpoints/assets/teaser.png">
+  <link rel="canonical" href="https://xixiaouab.github.io/Beyond-Endpoints/">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#overview">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Beyond Endpoints home">
+      <svg viewBox="0 0 40 28" aria-hidden="true"><path d="M5 22C14-12 25 40 35 6"/><circle cx="5" cy="22" r="3"/><circle cx="35" cy="6" r="3"/></svg>
+      <span>Beyond Endpoints</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#overview">Overview</a>
+      <a href="#results">Results</a>
+      <a href="#citation">Citation</a>
+      <a class="nav-github" href="https://github.com/xixiaouab/Beyond-Endpoints" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="paper-title">
+      <div class="eyebrow"><span class="tiny-dot"></span> A study of paths, not just destinations</div>
+      <h1 id="paper-title">Beyond <em>Endpoints.</em></h1>
+      <p class="paper-subtitle">Bézier Paths for<br class="mobile-break"> Vision Foundation Model Adaptation</p>
+      <div class="authors" aria-label="Authors">
+        <a href="https://openreview.net/profile?id=~Chenzhi_Zheng2">Chenzhi Zheng<sup>1,*</sup></a>
+        <a href="https://openreview.net/profile?id=~Xi_Xiao2">Xi Xiao<sup>2,*,†</sup></a>
+        <a href="https://openreview.net/profile?id=~Chih-Ting_Liao1">Chih-Ting Liao<sup>3</sup></a>
+        <a href="https://openreview.net/profile?id=~Qizhen_Lan1">Qizhen Lan<sup>2</sup></a>
+        <a href="https://openreview.net/profile?id=~Jingwen_Lin1">Jingwen Lin<sup>1</sup></a>
+        <a href="https://openreview.net/profile?id=~Tianyang_Wang1">Tianyang Wang<sup>2</sup></a>
+        <a href="https://openreview.net/profile?id=~Hao_Xu18">Hao Xu<sup>4</sup></a>
+        <a href="https://openreview.net/profile?id=~Xin_Cao2">Xin Cao<sup>3</sup></a>
+      </div>
+      <div class="affiliations">
+        <span><sup>1</sup> University of Birmingham</span><span><sup>2</sup> University of Alabama at Birmingham</span>
+        <span><sup>3</sup> University of New South Wales</span><span><sup>4</sup> Harvard University</span>
+      </div>
+      <p class="author-notes">* Equal contribution <span>·</span> † Corresponding author: <a href="mailto:xxiao@uab.edu">Xi Xiao</a></p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="assets/paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2.5h7l3 3v12H5zM12 2.5v4h3M8 10h4M8 13h4"/></svg> Read the paper <span class="button-note">PDF</span></a>
+        <a class="button button-secondary" href="https://github.com/xixiaouab/Beyond-Endpoints" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a8 8 0 0 0-2.5 15.6v-2.1c-2 .4-2.4-.9-2.4-.9-.3-.8-.8-1-.8-1-.6-.4 0-.4 0-.4.7.1 1 .7 1 .7.6 1 1.7.7 2.2.5.1-.4.3-.7.5-.9-1.7-.2-3.5-.9-3.5-3.9 0-.9.3-1.6.8-2.1-.1-.2-.3-1 .1-2.1 0 0 .7-.2 2.2.8a7.5 7.5 0 0 1 4 0c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.5.8 1.2.8 2.1 0 3-1.8 3.7-3.5 3.9.3.3.5.7.5 1.4v2.7A8 8 0 0 0 10 2Z"/></svg> Project on GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <figure class="hero-figure wide-container">
+      <button class="figure-button" data-zoom="assets/teaser.png" aria-label="Enlarge the path geometry schematic">
+        <img src="assets/teaser.png" width="1800" height="467" alt="Schematic: an ambient chord is unreachable; unrolling the attainable cone gives a straight path that can be lifted to shared prompts." fetchpriority="high">
+        <span class="zoom-hint" aria-hidden="true">↗ Explore the figure</span>
+      </button>
+      <figcaption><span class="caption-label">The central idea</span> Shared attention can rule out the ambient shortcut. Unrolling its attainable cone reveals a shortest realizable path. <span class="muted">Schematic, not a measured ViT feature surface.</span></figcaption>
+    </figure>
+
+    <section class="overview content-container" id="overview" aria-labelledby="overview-title">
+      <div class="section-heading"><span class="section-number">01 / The question</span><h2 id="overview-title">How prompts move<br><em>matters.</em></h2></div>
+      <div class="overview-copy">
+        <p class="lead">Reaching two good endpoints does not mean shared visual prompts can take the shortest path between them.</p>
+        <p>As prompts change, a frozen vision model’s image features move. Each image’s content competes for attention, so the same prompt update can move different images in different directions. We study the extra transport cost of keeping the entire journey realizable.</p>
+        <details class="abstract-details"><summary>Read the abstract <span aria-hidden="true">+</span></summary><p>Visual prompt tuning (VPT) adapts a frozen vision foundation model by learning a few tokens shared across all images. When prompts are updated as data shift or tasks change, the distribution of image features moves from one endpoint to another. Prior theory asks which endpoints prompts can reach; we ask whether they can travel between them along the shortest path. Because shared prompts compete with each image’s own content for attention, they often cannot. We quantify this restriction as the extra transport cost that shared attention imposes over the shortest path. In an exactly solvable attention model, the reachable features form a cone; unrolling it into a plane gives the exact minimum action for every pair of endpoints and explicit optimal prompts on short arcs. The analysis reveals a sharp threshold in content normalization, which measures how much attention each image’s own tokens absorb: for same-sign endpoints, at most two distinct levels allow prompts to follow the shortest path, whereas three or more force a strictly positive extra cost unless the endpoints differ only by rescaling. This gap persists with more prompts, small content perturbations, and aligned multihead outputs. On ViT-B/16 with VTAB-1k, a quadratic Bézier prompt path that minimizes feature action reduces held-out transport action relative to linear and cross-entropy-trained paths between the same endpoints and improves intermediate and online accuracy under unlabeled distribution shift, while cross-entropy-trained paths retain higher minimum accuracy when labeled calibration data are available. <em>Reachable endpoints do not guarantee a reachable shortest path:</em> how prompts move matters, not only where they end.</p></details>
+      </div>
+    </section>
+
+    <section class="method content-container" aria-labelledby="method-title">
+      <div class="section-topline"><span class="section-number">02 / From geometry to adaptation</span><h2 id="method-title">Understand the constraint.<br><em>Then learn the route.</em></h2></div>
+      <figure class="paper-figure"><button class="figure-button" data-zoom="assets/method.png" aria-label="Enlarge the method overview"><img src="assets/method.png" width="1800" height="647" alt="Method overview connecting the exact geometry of an attention head to a learned fixed-endpoint Bézier prompt path in a frozen vision transformer." loading="eager"></button><figcaption>Analyze the attainable geometry in an exactly solvable attention model; learn the control tensor of a Bézier prompt path in a frozen ViT.</figcaption></figure>
+      <div class="findings-grid">
+        <article><span class="finding-index">i.</span><h3>Exact path geometry</h3><p>Derive the minimum transport action across endpoint regimes and construct optimal prompts on short arcs in a realizable attention head.</p></article>
+        <article><span class="finding-index">ii.</span><h3>A sharp threshold</h3><p>Three distinct content normalizers force an intrinsic gap for same-sign, non-rescaling endpoints in the core model.</p></article>
+        <article><span class="finding-index">iii.</span><h3>Route and timing</h3><p>Separate the cost of a longer route from the cost of uneven speed, then evaluate feature-action paths between fixed ViT prompts.</p></article>
+      </div>
+    </section>
+
+    <section class="results-section" id="results" aria-labelledby="results-title">
+      <div class="content-container">
+        <div class="results-intro"><div><span class="section-number">03 / What changes along the way</span><h2 id="results-title">Less motion.<br><em>Same endpoints.</em></h2></div><p>Between identical prompt endpoints, the training objective changes the journey through feature space.</p></div>
+        <div class="result-tabs" role="tablist" aria-label="VPT configuration"><button id="tab-shallow" class="result-tab" role="tab" aria-selected="true" aria-controls="result-panel" data-mode="shallow">VPT-Shallow</button><button id="tab-deep" class="result-tab" role="tab" aria-selected="false" aria-controls="result-panel" tabindex="-1" data-mode="deep">VPT-Deep</button></div>
+        <div id="result-panel" class="result-panel" role="tabpanel" aria-labelledby="tab-shallow">
+          <div class="result-chart" aria-label="Held-out transport action; lower is better"><p class="chart-label">Held-out transport action <span>↓ Lower is better</span></p><div class="bar-row"><span>Cross-entropy</span><div class="bar-track"><div class="bar ce-bar" style="--bar-width:64.29%"></div></div><strong id="ce-action">4.50</strong></div><div class="bar-row"><span>CE + feature action</span><div class="bar-track"><div class="bar hybrid-bar" style="--bar-width:48.86%"></div></div><strong id="hybrid-action">3.42</strong></div><div class="bar-row"><span>Feature action</span><div class="bar-track"><div class="bar fa-bar" style="--bar-width:45.71%"></div></div><strong id="fa-action">3.20</strong></div><div class="reduction"><strong id="reduction">28.9%</strong><span>less action with feature action<br>relative to cross-entropy</span></div></div>
+          <div class="accuracy-table-wrap"><table><caption>Minimum accuracy along the path <span>↑</span></caption><thead><tr><th scope="col">Objective</th><th scope="col">Min. accuracy</th></tr></thead><tbody><tr><th scope="row">Cross-entropy</th><td id="ce-acc">68.8%</td></tr><tr><th scope="row">CE + feature action</th><td id="hybrid-acc">68.7%</td></tr><tr><th scope="row">Feature action</th><td id="fa-acc">67.4%</td></tr></tbody></table><p class="tradeoff">There is a tradeoff: pure feature action reduces motion, while cross-entropy retains higher minimum accuracy. The hybrid stays within <strong>0.1 percentage points</strong> of CE.</p></div>
+        </div>
+        <p class="result-scope">ViT-B/16 · 19 VTAB-1k tasks · fixed endpoints and classifier · 128 held-out images per task · five endpoint pairs per task. Mean values from Table 2; action evaluated at 128 intervals.</p>
+        <div class="shift-result"><span class="shift-label">When target labels are unavailable</span><p>Feature-action Bézier improves minimum shifted accuracy by <strong>+1.6 / +1.8 pp</strong> over unlabeled entropy Bézier for Shallow / Deep.</p><span class="shift-scope">Fixed-endpoint transitions · 7 VTAB-Natural tasks · Gaussian noise, severity 3 · disjoint 128-image calibration and evaluation sets. Table 13.</span></div>
+      </div>
+    </section>
+
+    <section class="timing content-container" aria-labelledby="timing-title"><div class="timing-heading"><span class="section-number">04 / A better route, a better clock</span><h2 id="timing-title">Retiming helps.<br><em>Geometry still matters.</em></h2><p>Moving at a constant speed removes timing cost. It cannot straighten a curved route or remove the intrinsic gap.</p></div><figure class="paper-figure"><button class="figure-button" data-zoom="assets/route-timing.png" aria-label="Enlarge route and timing diagnostics"><img src="assets/route-timing.png" width="1800" height="549" alt="Four panels compare speed, cumulative action, retiming, and excess action for token-linear, aggregate-linear, and developed-chord paths." loading="eager"></button><figcaption>Formula evaluations on 24 scalar-model cases, normalized by their attainable optimum. These diagnostics distinguish route cost from timing cost.</figcaption></figure></section>
+
+    <section class="citation-section content-container" id="citation" aria-labelledby="citation-title"><div class="citation-heading"><div><span class="section-number">05 / Cite this work</span><h2 id="citation-title"><em>Citation.</em></h2></div><button class="copy-button" id="copy-citation"><span aria-hidden="true">⧉</span> Copy BibTeX</button></div><pre id="citation-text"><code>@misc{zheng2026beyondendpoints,
+  title  = {Beyond Endpoints: B\'ezier Paths for
+            Vision Foundation Model Adaptation},
+  author = {Chenzhi Zheng and Xi Xiao and Chih-Ting Liao
+            and Qizhen Lan and Jingwen Lin and Tianyang Wang
+            and Hao Xu and Xin Cao},
+  year   = {2026},
+  url    = {https://xixiaouab.github.io/Beyond-Endpoints/}
+}</code></pre><p class="copy-status" id="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+
+  <footer class="site-footer content-container"><a class="footer-brand" href="#top">Beyond Endpoints <span aria-hidden="true">↗</span></a><p>Bézier paths. Frozen features. New perspectives.</p><a href="mailto:xxiao@uab.edu">Get in touch <span aria-hidden="true">↗</span></a></footer>
+  <dialog id="figure-dialog" aria-label="Enlarged paper figure"><div class="dialog-top"><span>Beyond Endpoints / Figure</span><button id="close-figure" aria-label="Close enlarged figure">Close <span aria-hidden="true">×</span></button></div><img id="dialog-image" alt=""></dialog>
+</body>
+</html>
