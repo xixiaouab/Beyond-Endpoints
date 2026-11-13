@@ -4,9 +4,9 @@ Project website for **Beyond Endpoints: Bézier Paths for Vision Foundation Mode
 
 **[Project page](https://xixiaouab.github.io/Beyond-Endpoints/)** · **[Paper PDF](https://xixiaouab.github.io/Beyond-Endpoints/assets/paper.pdf)**
 
-Chenzhi Zheng*, Xi Xiao*†, Chih-Ting Liao, Qizhen Lan, Jingwen Lin, Tianyang Wang, Hao Xu, Xin Cao.
+Chenzhi Zheng†, Xi Xiao†✉, Chih-Ting Liao, Qizhen Lan, Jingwen Lin, Tianyang Wang, Hao Xu, Xin Cao.
 
-\* Equal contribution. † Corresponding author: xxiao@uab.edu.
+† Equal contribution. ✉ Corresponding author: xxiao@uab.edu.
 
 This repository contains the static project website and paper assets. It does not contain the research implementation.
 
